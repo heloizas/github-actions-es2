@@ -33,12 +33,12 @@ jobs:
       if: runner.os == 'macOS'
       run: ./main
 
-    - name: Run catch2 tests on windows
+    - name: Run utest tests on windows
       if: runner.os == 'Windows'
       run: .\testes
-    - name: Run catch2 tests on linux
+    - name: Run utest tests on linux
       if: runner.os == 'Linux'
       run: ./testes
-    - name: Run catch2 tests on macOS
+    - name: Run utest tests on macOS
       if: runner.os == 'macOS'
       run: ./testes
