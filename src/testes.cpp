@@ -1,5 +1,3 @@
-#define CATCH_CONFIG_MAIN
-
 #include "../include/carro.h"
 #include "../external/utest.h"
 #include <stdexcept>

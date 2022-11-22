@@ -3,10 +3,6 @@
 #ifndef CARRO_H
 #define CARRO_H
 
-#define consumption 15
-
-using namespace std;
-
 class Carro
 {
 private:
