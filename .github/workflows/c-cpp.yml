@@ -20,8 +20,25 @@ jobs:
     - name: Configure
       run: ./configure
 
-    - name: Make
+    - name: Makefile
       run: make
 
-    # - name: Test
-    #   run: ./testes
+    - name: Run main file on windows
+      if: runner.os == 'Windows'
+      run: .\main
+    - name: Run main file on linux
+      if: runner.os == 'Linux'
+      run: ./main
+    - name: Run main file on macOS
+      if: runner.os == 'macOS'
+      run: ./main
+
+    - name: Run catch2 tests on windows
+      if: runner.os == 'Windows'
+      run: .\testes
+    - name: Run catch2 tests on linux
+      if: runner.os == 'Linux'
+      run: ./testes
+    - name: Run catch2 tests on macOS
+      if: runner.os == 'macOS'
+      run: ./testes
