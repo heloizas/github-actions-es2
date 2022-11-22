@@ -1,8 +1,7 @@
 #include <iostream>
 
 #include "../include/carro.h"
-
-using namespace std;
+#include <stdexcept>
 
 Carro::Carro()
 {
@@ -14,7 +13,7 @@ void Carro::Abastecer(int litros)
 {
   if (litros > armazenamentoMaximo) 
   {
-    throw "Tentando abastecer mais que o limite";
+    throw std::out_of_range ("Tentando abastecer mais que o limite");
   } else {
     tanque = litros;
   }

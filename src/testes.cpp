@@ -1,34 +1,37 @@
 #define CATCH_CONFIG_MAIN
 
 #include "../include/carro.h"
-#include "../external/catch.hpp"
+#include "../external/utest.h"
+#include <stdexcept>
 
-TEST_CASE("Abasteceu e não moveu")
+UTEST(TesteCombustivelRestante, AbasteceuENaoMoveu)
 {
   Carro CarroTeste;
   CarroTeste.Abastecer(5);
   CarroTeste.Mover(0);
-  REQUIRE(CarroTeste.GetCombustivelRestante() == 5);
+  ASSERT_EQ(CarroTeste.GetCombustivelRestante(), 5);
 }
 
-TEST_CASE("Abasteceu e moveu")
+UTEST(TesteCombustivelRestante, AbasteceuEMoveu)
 {
   Carro CarroTeste;
   CarroTeste.Abastecer(2);
   CarroTeste.Mover(30);
-  REQUIRE(CarroTeste.GetCombustivelRestante() == 0);
+  ASSERT_EQ(CarroTeste.GetCombustivelRestante(), 0);
 }
 
-TEST_CASE("Combustivel Restante")
+UTEST(TesteCombustivelRestante, CombustivelRestante)
 {
   Carro CarroTeste;
   CarroTeste.Abastecer(3);
   CarroTeste.Mover(30);
-  REQUIRE(CarroTeste.GetCombustivelRestante() == 1);
+  ASSERT_EQ(CarroTeste.GetCombustivelRestante(), 1);
 }
 
-TEST_CASE("Tentou abastecer mais que o limite")
+UTEST(TesteCombustivelRestante, AbastecerMaisQueLimite)
 {
   Carro CarroTeste;
-  REQUIRE_THROWS_WITH(CarroTeste.Abastecer(51), "Tentando abastecer mais que o limite");
+  ASSERT_EXCEPTION(CarroTeste.Abastecer(51), std::out_of_range);
 }
+
+UTEST_MAIN();
